@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleportal.css">
+    <title>Instituição de Ensino</title>
+</head>
+<body>
+    <header>
+        <h1>Instituição de Ensino XYZ</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="link-inicio">Início</a></li>
+                <li><a href="areadecurso.html">Cursos</a></li>
+                <li><a href="#" id="link-noticias">Notícias</a></li>
+                <li><a href="#" id="link-contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="destaque">
+            <h2>Bem-vindo à Instituição de Ensino XYZ</h2>
+            <p>Oferecemos uma ampla gama de cursos e oportunidades educacionais para você.</p>
+            <button id="saiba-mais" class="saiba-mais">Saiba Mais</button>
+        </section>
+        
+        <!-- Adicione uma seção para exibir as informações de contato -->
+        <section id="informacoes-contato" style="display: none;">
+            <h2>Informações de Contato</h2>
+            <p>Email: contato@instituicao.com</p>
+            <p>Telefone: (123) 456-7890</p>
+            <p>Endereço: Rua da Instituição, Nº 123</p>
+            <p>Redes Sociais: <a href="https://www.facebook.com/sua_pagina_no_facebook" target="_blank">Facebook</a>, <a href="https://twitter.com/i/flow/login">Twitter</a>, <a href="https://www.instagram.com/">Instagram</a></p>
+        </section>
+
+        <!--     Noticias Mostradas no site   -->
+
+        <section id="noticias" style="display: none;">
+            <h2>Notícias</h2>
+            <article class="noticia">
+                <h3>Aumento da Mensalidade</h3>
+                <p>Data da Publicação: 10 de setembro de 2023</p>
+                <p>A partir do ano que vem o aumento da mensalidade para a instituição será de 17,5% da atual mensalidade.</p>
+                <a href="#">Leia Mais</a>
+            </article>
+            
+            <article class="noticia">
+                <h3>Oportunidades de Emprego!</h3>
+                <p>Data da Publicação: 9 de setembro de 2023</p>
+                <p>Para os alunos que buscam entrar no mercado de trabalho a sua hora chegou! Áreas de Tecnologia e engenharia disponibilizam novas vagas.</p>
+                <a href="#">Leia Mais</a>
+            </article>
+
+        </section>
+        
+
+        <section class="cursos">
+            <h2>Nossos Cursos</h2>
+            <ul>
+                <li><a href="#">Curso 1</a></li>
+                <li><a href="#">Curso 2</a></li>
+                <li><a href="#">Curso 3</a></li>
+                <li><a href="#">Curso 4</a></li>
+            </ul>
+        </section>
+    </main>
+    <script>
+             // Seleciona o botão "Saiba Mais"
+             const saibaMaisButton = document.getElementById("saiba-mais");
+        
+             // Seleciona a seção de informações de contato
+             const informacoesContato = document.getElementById("informacoes-contato");
+        
+             // Adiciona um evento de clique ao botão "Saiba Mais"
+             saibaMaisButton.addEventListener("click", function() {
+             // Exibe a seção de informações de contato
+             informacoesContato.style.display = "block";
+        
+             // Oculta o botão "Saiba Mais" após ser clicado
+             saibaMaisButton.style.display = "none";
+    });
+        
+        
+         // Seleciona o link "Contato" pelo id
+         const linkContato = document.getElementById("link-contato");
+        
+         // Adiciona um evento de clique ao link "Contato"
+         linkContato.addEventListener("click", function(event) {
+         event.preventDefault(); // Impede que o link redirecione para "#" (comportamento padrão)
+    
+         // Exibe a seção de informações de contato
+         informacoesContato.style.display = "block";
+    });
+
+
+         // Seleciona o link "Início" pelo id
+         const linkInicio = document.getElementById("link-inicio");
+
+         // Adiciona um evento de clique ao link "Início"
+         linkInicio.addEventListener("click", function(event) {
+         event.preventDefault(); // Impede que o link redirecione para "#" (comportamento padrão)
+
+         // Recarrega a página
+         location.reload();
+    });
+
+
+         // Seleciona o link "Notícias" pelo id
+         const linkNoticias = document.getElementById("link-noticias");
+    
+         // Seleciona a seção de notícias
+         const noticiasSection = document.getElementById("noticias");
+    
+         // Adiciona um evento de clique ao link "Notícias"
+         linkNoticias.addEventListener("click", function(event) {
+         event.preventDefault(); // Impede que o link redirecione para "#" (comportamento padrão)
+
+         // Exibe a seção de notícias
+         noticiasSection.style.display = "block";
+
+         // Oculta outras seções, se necessário (supondo que você queira ocultar a seção de contato)
+         const informacoesContato = document.getElementById("informacoes-contato");
+         informacoesContato.style.display = "none";
+    });
+</script>
+
+</script>
+
+    </script>
+
+    <footer>
+        <p>&copy; 2023 Instituição de Ensino XYZ. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>

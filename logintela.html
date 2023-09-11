@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylelogin.css">
+    <title>Tela de Login e Cadastro</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <form id="login-form">
+                <h2>Login</h2>
+                <label for="username">Nome de Usuário:</label>
+                <input type="text" id="username" name="username" required>
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" required>
+                <button type="submit">Entrar</button>
+            </form>
+            <p>ou</p>
+            <button id="show-register-form">Registrar</button>
+        </div>
+
+        <div class="form-container" id="register-form-container">
+            <form id="register-form">
+                <h2>Cadastro</h2>
+                <label for="new-username">Novo Nome de Usuário:</label>
+                <input type="text" id="new-username" name="new-username" required>
+                <label for="new-email">Email:</label>
+                <input type="email" id="new-email" name="new-email" required>
+                <label for="new-password">Nova Senha:</label>
+                <input type="password" id="new-password" name="new-password" required>
+                <label for="new-cpf">CPF:</label>
+                <input type="number" id="new-cpf" name="new-cpf" required pattern="[0-9]{11}" title="Digite um CPF válido com 11 dígitos (somente números)">
+                <button type="submit">Cadastrar</button>
+            </form>
+            <p>ou</p>
+            <button id="show-login-form">Voltar para o Login</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
