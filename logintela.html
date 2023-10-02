@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -15,8 +16,7 @@
                 <input type="text" id="username" name="username" required>
                 <label for="password">Senha:</label>
                 <input type="password" id="password" name="password" required>
-                <button type="submit">Entrar</button>
-            </form>
+                <button type="submit">Entrar</button>            </form>
             <p>ou</p>
             <button id="show-register-form">Registrar</button>
         </div>
@@ -32,13 +32,32 @@
                 <input type="password" id="new-password" name="new-password" required>
                 <label for="new-cpf">CPF:</label>
                 <input type="number" id="new-cpf" name="new-cpf" required pattern="[0-9]{11}" title="Digite um CPF válido com 11 dígitos (somente números)">
-                <button type="submit">Cadastrar</button>
-            </form>
+                <button type="submit">Cadastrar</button>            </form>
             <p>ou</p>
             <button id="show-login-form">Voltar para o Login</button>
         </div>
     </div>
-
-    <script src="script.js"></script>
+    <script>
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+    
+            const xhr = new XMLHttpRequest();
+            xhr.open("POST", "auth.php", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            };
+    
+            const data = `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
+            xhr.send(data);
+        });
+    </script>
+    <script src="scriptlogin.js"></script>
+    <script type="module">
+    </script>
 </body>
 </html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="curso1.css">
+    <title>Curso de Introdução à Programação</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="cursos.html">Início</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="curso-detalhes">
+            <h1>Curso de Introdução à Programação</h1>
+            <p>Duração: 5 horas</p>
+            <p>Descrição: Aprenda os conceitos básicos de programação. <br>
+            - Conceitos bases. 
+            <br>
+            - Introdução ao Java
+             <br>
+            - Documentação do Java</p>
+
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://youtu.be/SoFEAUJpDXA?si=YEwLBcWAl-YpSgKf" frameborder="0" allowfullscreen></iframe>
+            </div>
+
+            <div class="comentarios-container">
+                <h3>Deixe um Comentário:</h3>
+                <form id="comment-form">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                    
+                    <label for="comment">Comentário:</label>
+                    <textarea id="comment" name="comment" rows="4" required></textarea>
+                    
+                    <button type="button" onclick="enviarComentario()">Enviar Comentário</button>
+                </form>
+
+                <h2>Comentários</h2>
+                <div id="comentarios-existentes" class="comentarios-existentes">
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function getPaginaId() {
+            return 'Curso de Introdução à Programação';
+        }
+
+        function getStoredComments() {
+            const paginaId = getPaginaId();
+            const storedComments = localStorage.getItem('comments_' + paginaId);
+            return storedComments ? JSON.parse(storedComments) : [];
+        }
+
+        function saveComments(comments) {
+            const paginaId = getPaginaId();
+            localStorage.setItem('comments_' + paginaId, JSON.stringify(comments));
+        }
+
+        function displayStoredComments() {
+            const storedComments = getStoredComments();
+            const comentariosContainer = document.getElementById("comentarios-existentes");
+
+            comentariosContainer.innerHTML = "";
+
+            storedComments.forEach(comment => {
+                const newComment = document.createElement("div");
+                newComment.className = "comentario";
+                newComment.innerHTML = `<h4>${comment.name}</h4><p>${comment.comment}</p>`;
+                comentariosContainer.appendChild(newComment);
+            });
+        }
+
+        function enviarComentario() {
+            const name = document.getElementById("name").value;
+            const comment = document.getElementById("comment").value;
+
+            const paginaId = getPaginaId();
+            const newComment = { name, comment, pagina: paginaId };
+
+            const storedComments = getStoredComments();
+            storedComments.push(newComment);
+            saveComments(storedComments);
+
+            displayStoredComments();
+
+            document.getElementById("name").value = "";
+            document.getElementById("comment").value = "";
+        }
+
+        document.getElementById("comment-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            enviarComentario();
+        });
+
+        window.onload = function() {
+            displayStoredComments();
+        };
+    </script>
+
+    <footer>
+        <p>&copy; 2023 Cursos & Aprendizagem</p>
+    </footer>
+</body>
+</html>

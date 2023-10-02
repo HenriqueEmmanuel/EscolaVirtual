@@ -1,0 +1,59 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cursos.css">
+    <title>Cursos de Curta Duração</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="portal.html">Início</a></li>
+                <li><a href="#">Cursos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cursos">
+            <h1>Selecione um Curso</h1>
+
+            <div class="curso" onclick="redirecionarParaCurso('introprograma.html')">
+                <h2>Curso de Introdução à Programação</h2>
+                <p>Duração: 5 horas</p>
+                <p>Descrição: Aprenda os conceitos básicos de programação.</p>
+                <button>Acessar</button>
+            </div>
+
+            <div class="curso" onclick="redirecionarParaCurso('desing.html')">
+                <h2>Curso de Design Gráfico Básico</h2>
+                <p>Duração: 4 horas</p>
+                <p>Descrição: Introdução ao design gráfico e ferramentas.</p>
+                <button>Acessar</button>
+            </div>
+
+
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Cursos & Aprendizagem</p>
+    </footer>
+
+    <script>
+        function redirecionarParaCurso(pagina) {
+            window.location.href = pagina;
+        }
+    </script>
+</body>
+</html>
